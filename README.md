@@ -1,0 +1,1 @@
+Starrting shell basics
