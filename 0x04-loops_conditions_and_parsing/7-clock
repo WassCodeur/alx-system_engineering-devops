@@ -1,1 +1,13 @@
 #!/usr/bin/env bash
+i = 0
+while((i <= 12))
+do
+    echo "hour: $i"
+    ((i++))
+    let "j = 1"
+    while((j < 60))
+    do
+        echo "$j"
+        ((j++))
+    done
+done

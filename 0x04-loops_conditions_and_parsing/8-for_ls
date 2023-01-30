@@ -1,1 +1,7 @@
 #!/usr/bin/env bash
+# comment
+for i in $(ls *); do
+  if [ -f "$i" ] && [[ ! "$i" =~ ^\. ]]; then
+    echo "${i##*-}"
+  fi
+done
