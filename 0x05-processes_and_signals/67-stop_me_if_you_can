@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
-# This script stops the 4-to_infinity_and_beyond process
+# This script kills the 7-highlander process
+# And displays "I am invincible!!" upon receiving a SIGTERM signal
 
-# Get the PID of the 4-to_infinity_and_beyond process
+# Function to handle the SIGTERM signal
+function terminate {
+  echo "I am invincible!!"
+  exit 0
+}
+
+# Trap the SIGTERM signal
+trap terminate SIGTERM
+
+# Get the PID of the 7-highlander process
 pid=$(pgrep -f '7-highlander')
 
-# Send the TERM signal to the 4-to_infinity_and_beyond process using its PID
-kill -TERM $pid
+# Kill the 7-highlander process using its PID
+kill $pid
