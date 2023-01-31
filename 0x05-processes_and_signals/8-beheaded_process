@@ -2,15 +2,6 @@
 # This script kills the 7-highlander process
 # And displays "I am invincible!!" upon receiving a SIGTERM signal
 
-# Function to handle the SIGTERM signal
-function terminate {
-  echo "killed"
-  exit 0
-}
-
-# Trap the SIGTERM signal
-trap terminate SIGTERM
-
 # Get the PID of the 7-highlander process
 pid=$(pgrep -f '7-highlander')
 
