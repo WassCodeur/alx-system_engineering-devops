@@ -5,6 +5,7 @@
 # Function to handle the SIGTERM signal
 function terminate {
   echo "I am invincible!!"
+  ./7-highlander &  # Start the 7-highlander process
   exit 0
 }
 
