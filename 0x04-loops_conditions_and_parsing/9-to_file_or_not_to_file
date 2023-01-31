@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# comment 
 if [ -e "school" ]; then
   echo "school file exists."
   if [ -s "school" ]; then

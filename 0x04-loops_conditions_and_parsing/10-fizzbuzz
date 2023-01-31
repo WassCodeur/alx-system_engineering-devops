@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script is displaying 
-i = 0
+i=0
 while ((i< 100))
 do
 ((i++))
