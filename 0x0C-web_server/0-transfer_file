@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # a Bash script that transfers a file from our client to a server
-if [ "${BASH_ARGC}"  -lt  3 ]; then
+if [ "#"  -ne  4 ]; then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
     exit
 fi
 
-fil="${BASH_ARGV[3]}"
-ip="${BASH_ARGV[2]}"
-usrname="${BASH_ARGV[1]}"
-sshkey="${BASH_ARGV[0]}"
-scp -i "$sshkey" -o StrictHostKeyChecking=No "$fil" "$usrname@$ip":~/
+fil=$1
+ip=$2
+usrname=$3
+sshkey=$4
 
+scp -i "$sshkey" -o StrictHostKeyChecking=No "$fil" "$usrname@$ip":~/
