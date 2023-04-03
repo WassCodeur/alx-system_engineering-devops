@@ -9,4 +9,4 @@ fil="${BASH_ARGV[0]}"
 ip="${BASH_ARGV[1]}"
 usrname="${BASH_ARGV[2]}"
 sshkey="${BASH_ARGV[3]}"
-scp -i "$sshkey" "$fil" "usrname"@"$ip":~/
+scp -i "$sshkey" "$fil" "usrname@$ip":~/
