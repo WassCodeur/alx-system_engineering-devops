@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # command use to fix the error
+# sudo docker run -p 8080:80 -d -it holbertonschool/265-0
+# service apache2 start
 service apache2 start
