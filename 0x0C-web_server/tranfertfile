@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+fil=3-redirection
+ip=18.210.17.157
+usrname=ubuntu
+sshkey=0-RSA_public_key
+scp -i "$sshkey" -o StrictHostKeyChecking=No "$fil" "$usrname@$ip":~/
