@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-fil=3-redirection
+fil=/home/wasscodeur/alx-system_engineering-devops/0x0E-web_stack_debugging_1/0-nginx_likes_port_80
 ip=18.210.17.157
 usrname=ubuntu
-sshkey=0-RSA_public_key
+sshkey=/home/wasscodeur/my_rsa_key
 scp -i "$sshkey" -o StrictHostKeyChecking=No "$fil" "$usrname@$ip":~/
