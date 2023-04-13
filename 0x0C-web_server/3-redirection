@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 # Redirection
-sed -i '/http {/a\\tserver {\n\t\tlisten 80;\n\t\tserver_name 18.210.17.157;\n\t\tlocation /redirect_me {\n\t\t\treturn 301 https://www.alxafrica.com;\n\t\t}\n\t}' /etc/nginx/nginx.conf
+CONFIGFILE=/etc/nginx/sites-available/default
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' | tee /var/www/html/index.html
+sed -i "53i\ \n\tlacation /redirect_me {\n\t\treturn 301 https://www.linkedin.com/in/wasscodeur/; \n\t}" $CONFIGFILE
+service nginx start

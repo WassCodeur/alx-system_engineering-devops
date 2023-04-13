@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# script to remove nginx
+mkdir ~/backups/
+sudo tar -zcvf ~/backups/nginx-8-Sep-2019.tar.gz /etc/nginx/
+sudo apt-get remove nginx nginx-common -y
+sudo apt-get purge nginx nginx-common -y
