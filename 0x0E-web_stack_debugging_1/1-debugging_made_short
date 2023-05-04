@@ -2,4 +2,4 @@
 FILE="/etc/nginx/sites-enabled/default"
 sed -i "s/8080/80/g" $FILE
 service nginx restart
-
+echo "" > /run/nginx.pid
