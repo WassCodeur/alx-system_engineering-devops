@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-apt update 
-apt install nginx
-ufw allow 'Nginx HTTP'
+# remplace 8080 by 80
+FILE="/etc/nginx/sites-enabled/default"
+sed -i "s/8080/80/g" $FILE
 
