@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Install Nginx
+apt update
+apt install nginx -y
+# Nginx Http
+ufw allow 'Nginx HTTP'
+# start nginx
+service nginx start
