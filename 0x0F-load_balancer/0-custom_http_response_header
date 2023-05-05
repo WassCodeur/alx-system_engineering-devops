@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 # script that make web-2 indical to web-1
-apt-get update -y
+apt-get update
 apt-get install nginx ufw -y
 ufw allow 'Nginx HTTP'
 CONFIGFILE="/etc/nginx/sites-available/default"
-ERRORFILE="/usr/share/nginx/html/custom_404.html"
-SITESDIR="/var/www/html"
+ERRORFILE="/var/www/html/custom_404.html"
 INDEXFILE="/var/www/html/index.html"
-echo "Ceci n'est pas une page" > $ERRORFILE
+echo -e "Ceci n'est pas une page\n\n" > $ERRORFILE
 echo "Hello World!" > $INDEXFILE
-sed -i "53i\ \n\terror_page 404 /custom_404.html; \n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html; \n\t\tinternal; \n\t}" $CONFIGFILE
+sed -i "53i\ \n\terror_page 404 /custom_404.html; \n\tlocation = /custom_404.html {\n\t\tinternal; \n\t}" $CONFIGFILE
 sed -i "53i\  \n\tlocation /redirect_me {\n\t\treturn 301 https://www.alxafrica.com; \n\t}" $CONFIGFILE
-NEWHEADER='\n\tadd_header X-Served-By $hostname;\n'
-sed -i "53i\ $NEWHEADER" $CONFIGFILE
+sed -i "53i\ \n\tadd_header X-Served-By \$hostname;\n" $CONFIGFILE
 service nginx start
