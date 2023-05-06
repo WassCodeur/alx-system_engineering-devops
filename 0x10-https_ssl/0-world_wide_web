@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# declaration of my function
+myfunc () {
+	arr=(www lb-01 web-01 web-02)
+	if [ ! "$2" ]
+	then
+		for i in "${arr[@]}";do
+			echo "The subdomain $i is a A record and points to $(dig +short "$i.$1" | awk '{print $1}')"
+		done
+	fi
+	if [  "$2" ]
+		then
+			echo "The subdomain $1 is a A record and points to $(dig +short "$2.$1" | awk '{print $1}')"
+	fi
+}
+
+# called the function
+myfunc "$1" "$2"
