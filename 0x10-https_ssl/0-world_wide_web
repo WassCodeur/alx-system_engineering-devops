@@ -6,12 +6,12 @@ myfunc () {
 	if [ ! "$2" ]
 	then
 		for i in "${arr[@]}";do
-			echo "The subdomain $i is a  $(dig "$i.$1" | $command_line | awk '{print $1 " record and points to " $2}')" 
+			echo "The subdomain $i is a  $(dig "$i.$1" | $command_line )" | awk '{print $1 " record and points to " $2}' 
 		done
 	fi
 	if [  "$2" ]
 		then
-			echo "The subdomain $2 is a $(dig "$2.$1" | $command_line | awk '{print $1 " record and points to "  $2 }')"
+			echo "The subdomain $2 is a $(dig "$2.$1" | $command_line )" | awk '{print $1 " record and points to "  $2 }'
 	fi
 }
 
