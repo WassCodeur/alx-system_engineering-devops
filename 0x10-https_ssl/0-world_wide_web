@@ -10,7 +10,7 @@ myfunc () {
 	fi
 	if [  "$2" ]
 		then
-			echo "$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "  $3 }'
+			echo "$2 $(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "  $3 }'
 	fi
 }
 
