@@ -2,7 +2,7 @@
 # declaration of my function
 myfunc () {
 	arr=(www lb-01 web-01 web-02)
-	command_line=$(grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+	command_line=(grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
 	if [ ! "$2" ]
 	then
 		for i in "${arr[@]}";do
