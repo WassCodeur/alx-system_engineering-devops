@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 # declaration of my function
 myfunc () {
-	arr=(www lb-01 web-01 web-02)
-	if [ ! "$2" ]
-	then
-		for i in "${arr[@]}";do
-			echo "$i $(dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}' 
-		done
-	fi
-	if [  "$2" ]
-		then
-			echo "$2 $(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "  $3 }'
-	fi
+	echo "$2 $(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "  $3 }'
 }
 
 # called the function
-myfunc "$1" "$2"
+arr=(www lb-01 web-01 web-02)
+if [ ! "$2" ]
+then
+	for i in "${arr[@]}";do
+		myfunc "$1" "$i"
+	done
+else
+	myfunc "$1" "$2"
+fi
