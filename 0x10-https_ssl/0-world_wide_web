@@ -5,12 +5,12 @@ myfunc () {
 	if [ ! "$2" ]
 	then
 		for i in "${arr[@]}";do
-			echo "$(dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $i " is a " $1 " record and points to " $2}' 
+			echo "$i $(dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}' 
 		done
 	fi
 	if [  "$2" ]
 		then
-			echo "$(dig "$2.$1" | $command_line )" | awk '{print "The subdomain " $2 " is a " $1 " record and points to "  $2 }'
+			echo "$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ' )" | awk '{print "The subdomain " $1 " is a " $2 " record and points to "  $3 }'
 	fi
 }
 
