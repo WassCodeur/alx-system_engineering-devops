@@ -8,11 +8,12 @@ myfunc () {
 
 # called the function
 arr=(www lb-01 web-01 web-02)
-if [ ! "$2" ]
+if [ "$#"==2 ]
 then
 	for i in "${arr[@]}";do
 		myfunc "$1" "$i"
 	done
-else
+elif [ "$#"==1 ]
+then
 	myfunc "$1" "$2"
 fi
