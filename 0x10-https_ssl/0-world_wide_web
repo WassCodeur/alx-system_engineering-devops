@@ -2,11 +2,11 @@
 # declaration of my function
 myfunc () {
 	arr=(www lb-01 web-01 web-02)
-	command_line=(grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+	command_line=$(grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
 	if [ ! "$2" ]
 	then
 		for i in "${arr[@]}";do
-			echo "$(dig "$i.$1" | $command_line )" | awk '{print "The subdomain " $i " is a " $1 " record and points to " $2}' 
+			echo "$(dig "$i.$1" | command_line )" | awk '{print "The subdomain " $i " is a " $1 " record and points to " $2}' 
 		done
 	fi
 	if [  "$2" ]
