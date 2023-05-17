@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# script that Run software as another user
+
+if [ $# -eq 0 ]; then
+	echo "USAGE: ./0-iamsomeoneelse [username]"
+	exit 1
+else
+	sudo -u "$1" whoami
+fi
