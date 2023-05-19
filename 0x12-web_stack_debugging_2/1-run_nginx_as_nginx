@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# change nginx's user to nginx
+if ! id -u nginx  > /dev/null 2>&1; then
+	adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+fi
+sed -i '/user/s/.*/user nginx;/' /etc/nginx/nginx.conf
+chown -R nginx:nginx /var/www/html/
+chown -R nginx:nginx /var/log/nginx/
+chown -R nginx:nginx /var/lib/nginx/
+sed -i 'listen/s/.*/listen 8080;/' /etc/nginx/sites-available/default
+service nginx restart
