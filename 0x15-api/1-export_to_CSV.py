@@ -3,8 +3,9 @@
 extend my pyrhon script to exprot data to a csv file
 """
 
-from sys import argv
+from csv import DictWriter, QUOTE_ALL
 import requests
+from sys import argv
 
 
 if __name__ == '__main__':
@@ -21,9 +22,17 @@ if __name__ == '__main__':
         usrname = user['username']
         resTodos = requests.get(urlTodos.format(userId))
         todos = resTodos.json()
+        todo_list = []
         for td in todos:
+            todo_dict = {}
             cplt = td['completed']
             title = td['title']
-            line = '"{}","{}","{}","{}"\n'.format(userId, usrname, cplt, title)
-            with open(filename, 'a') as f:
-                f.write(line)
+            todo_dict['userId'] = userId
+            todo_dict['username'] = usrname
+            todo_dict['completed'] = cplt
+            todo_dict['task'] = title
+            todo_list.append(todo_dict)
+        with open(filename, 'a') as f:
+            header = ["userId", "username", "completed", "task"]
+            wrtr = DictWriter(f, fieldnames=header, quoting=QUOTE_ALL)
+            wrtr.writerows(todo_list)
