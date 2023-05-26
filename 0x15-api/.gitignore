@@ -5,3 +5,7 @@ push_git
 gitignore
 ex.py
 *.tmp.swp
+
+main.py
+main_1.py
+main_2.py
