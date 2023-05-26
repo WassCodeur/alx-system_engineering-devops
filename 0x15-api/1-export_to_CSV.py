@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+extend my pyrhon script to exprot data to a csv file
+"""
+
 from sys import argv
 import requests
 
