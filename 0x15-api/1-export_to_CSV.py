@@ -32,7 +32,7 @@ if __name__ == '__main__':
             todo_dict['completed'] = cplt
             todo_dict['task'] = title
             todo_list.append(todo_dict)
-        with open(filename, 'a') as f:
+        with open(filename, 'w') as f:
             header = ["userId", "username", "completed", "task"]
             wrtr = DictWriter(f, fieldnames=header, quoting=QUOTE_ALL)
             wrtr.writerows(todo_list)
