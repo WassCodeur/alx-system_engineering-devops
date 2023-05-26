@@ -25,7 +25,7 @@ if __name__ == '__main__':
                 completeTasks.append(todo)
         cpltTasksSize = len(completeTasks)
         tdsSize = len(todos)
-        text = "Employee {} is done with tasks({}/{})"
+        text = "Employee {} is done with tasks({}/{}):"
         print(text.format(employee['name'], cpltTasksSize, tdsSize))
         for tasks in completeTasks:
             print("\t {}".format(tasks['title']))
