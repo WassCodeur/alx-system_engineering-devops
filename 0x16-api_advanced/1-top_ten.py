@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+The module requestes allow us to send httprequests using python
+"""
+
 import requests
 
 
