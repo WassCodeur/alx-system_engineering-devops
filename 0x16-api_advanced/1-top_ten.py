@@ -29,4 +29,4 @@ def top_ten(subreddit):
             title = post['data']['title']
             print(title)
      elif res.status_code == 404:
-        print(None)
+        print("None")
