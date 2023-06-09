@@ -6,7 +6,7 @@ The module requests allow us to send httprequests using python
 import requests
 
 
-def recurse(subreddit, hot_list=None, after=None):
+def recurse(subreddit, hot_list=[], after=None):
     """
     a function that queries the Reddit API and returns,
     a list containing the titles of all hot articles
@@ -18,7 +18,6 @@ def recurse(subreddit, hot_list=None, after=None):
     return:
     list of all hot articles's titles
     """
-    hot_list = []
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     hders = {"User-Agent": "Costum User Agent"}
     prms = {"limit": 100, "after": None}
