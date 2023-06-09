@@ -30,5 +30,5 @@ def recurse(subreddit, hot_list=None, after=None):
             return recurse(subreddit, hot_list, after)
         else:
             return hot_list
-    elif res.status_json == 404:
+    elif res.status_code == 404:
         return (None)
