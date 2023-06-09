@@ -29,8 +29,9 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
             title = post['data']['title']
             hot_list.append(title)
         after = to_json['data']['after']
+        count += to_json['data']['dist']
         if after is not None:
-            return recurse(subreddit, hot_list, after)
+            return recurse(subreddit, hot_list, after, count)
         return hot_list
     elif res.status_code == 404:
         return (None)
