@@ -1,0 +1,17 @@
+# nginx config file
+server {
+	listen 80 default_server;
+	 
+	add_header X-Served-By $hostname;
+	error_page 404 /custom_404.html;
+           location = /custom_404.html {
+                   internal;
+    }
+	location /airbnb-onepage/ {
+		proxy_pass http://localhost:5000;
+		proxy_set_header host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+	}
+	
+
+}

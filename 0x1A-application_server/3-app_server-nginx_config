@@ -1,0 +1,26 @@
+# 
+server {
+	listen 80 default_server;
+	
+	add_header X-Served-By $hostname;
+ location /airbnb-onepage/ {
+                proxy_pass http://localhost:5000;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+        }
+
+        location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                #proxy_pass https://localhost:5001/number_odd_or_even/{n}};
+                proxy_pass http://localhost:5001/number_odd_or_even/$1;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+
+        }
+
+ error_page 404 /custom_404.html;
+        location = /custom_404.html {
+                internal;
+        }
+	
+	}
+	
